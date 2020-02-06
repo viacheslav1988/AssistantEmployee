@@ -1,0 +1,294 @@
+﻿<UserControl x:Class="AssistantEmployee.Views.Workspaces.PositiveResponse.PositiveResponseDocumentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:Properties="clr-namespace:AssistantEmployee.Properties"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="Document.Background" Color="#ffffffff"/>
+        <SolidColorBrush x:Key="Document.Foreground.White" Color="#ffffffff"/>
+        <SolidColorBrush x:Key="Document.Foreground.Red" Color="#ffff0000"/>
+    </UserControl.Resources>
+    <Canvas Width="21cm" Height="29.7cm" Background="{StaticResource Document.Background}" TextBlock.FontFamily="pack://application:,,,/Resources/Fonts/ChevinCyrillic/#Chevin Cyrillic">
+        <!--ПРОВЕРКА НАСТРОЕК-->
+        <StackPanel Canvas.Left="2cm" Canvas.Top="2cm">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="FontSize" Value="17"/>
+                    <Setter Property="Margin" Value="0,3"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Настройки:" FontWeight="Bold" Foreground="MediumBlue" TextDecorations="Underline"/>
+            <TextBlock>
+                <Run Text="Полный почтовый адрес:&#9;&#9;">
+                </Run><Run FontWeight="Bold" Text="{Binding FullPostalAddress, Source={x:Static Properties:PositiveResponseSettings.Default}}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Склонение имени абонента:&#9;&#9;">
+                </Run><Run FontWeight="Bold" Text="{Binding DeclensionFullName, Source={x:Static Properties:PositiveResponseSettings.Default}}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Должность подписывающего:&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding PositionSignDocuments, Source={x:Static Properties:PositiveResponseSettings.Default}}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding PositionSignDocuments, Source={x:Static Properties:PositiveResponseSettings.Default}}" Value="">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Ф.И.О. подписывающего:&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding NameSignDocuments, Source={x:Static Properties:PositiveResponseSettings.Default}}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding NameSignDocuments, Source={x:Static Properties:PositiveResponseSettings.Default}}" Value="">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Показывать имя специалиста:&#9;">
+                </Run><Run FontWeight="Bold" Text="{Binding ShowSpecialist, Source={x:Static Properties:PositiveResponseSettings.Default}}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Ф.И.О. специалиста:&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding NameSpecialist, Source={x:Static Properties:PositiveResponseSettings.Default}}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding NameSpecialist, Source={x:Static Properties:PositiveResponseSettings.Default}}" Value="">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+        </StackPanel>
+        <!--ПРОВЕРКА ПАНЕЛИ ДОКУМЕНТА-->
+        <StackPanel Canvas.Left="2cm" Canvas.Top="8cm">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="FontSize" Value="17"/>
+                    <Setter Property="Margin" Value="0,3"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Документ:" FontWeight="Bold" Foreground="Peru" TextDecorations="Underline"/>
+            <TextBlock>
+                <Run Text="Номер договора:&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding ContractNumber}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ContractNumber}" Value="">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Дата договора:&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                    <Style TargetType="{x:Type Run}">
+                        <Setter Property="Text" Value="{Binding ContractDate, StringFormat='dd.MM.yyyy'}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ContractDate}" Value="{x:Null}">
+                                <Setter Property="Text" Value="Пусто"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Ф.И.О.:&#9;&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding FullName}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding FullName}" Value="">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Пол:&#9;&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold" Text="{Binding Gender, Converter={StaticResource EnumDescriptionValueConverter}}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Адрес:&#9;&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding Address, Converter={StaticResource AddressConverter}}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Address}" Value="">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Исходящий номер:&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding OutgoingNumber}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding OutgoingNumber}" Value="">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Дата ответа:&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                    <Style TargetType="{x:Type Run}">
+                        <Setter Property="Text" Value="{Binding OutgoingDate, StringFormat='dd.MM.yyyy'}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding OutgoingDate}" Value="{x:Null}">
+                                <Setter Property="Text" Value="Пусто"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Заявление на расторжение:&#9;&#9;">
+                </Run><Run FontWeight="Bold" Text="{Binding StatementTermination}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Дата расторжения:&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                    <Style TargetType="{x:Type Run}">
+                        <Setter Property="Text" Value="{Binding ContractTerminationDate, StringFormat='dd.MM.yyyy'}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ContractTerminationDate}" Value="{x:Null}">
+                                <Setter Property="Text" Value="Пусто"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Сумма долга:&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding AmountDebt, Converter={StaticResource AmountInWordsDecimalStringConverter}}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding AmountDebt}" Value="{x:Static System:Decimal.Zero}">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Заявление на перерасчет:&#9;&#9;">
+                </Run><Run FontWeight="Bold" Text="{Binding StatementRecalculation}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Дата заявление на перерасчет:&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                    <Style TargetType="{x:Type Run}">
+                        <Setter Property="Text" Value="{Binding StatementRecalculationDate, StringFormat='dd.MM.yyyy'}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding StatementRecalculationDate}" Value="{x:Null}">
+                                <Setter Property="Text" Value="Пусто"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Тип скидки:&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold" Text="{Binding DiscountType, Converter={StaticResource EnumDescriptionValueConverter}}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Cкидка:&#9;&#9;&#9;&#9;">
+                </Run><Run FontWeight="Bold" Text="{Binding Discounts, Converter={StaticResource EnumDescriptionValueConverter}, ConverterParameter='value'}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Дата начала скидки:&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                    <Style TargetType="{x:Type Run}">
+                        <Setter Property="Text" Value="{Binding StartDateDiscount, StringFormat='dd.MM.yyyy'}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding StartDateDiscount}" Value="{x:Null}">
+                                <Setter Property="Text" Value="Пусто"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Дата окончания скидки:&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                    <Style TargetType="{x:Type Run}">
+                        <Setter Property="Text" Value="{Binding EndDateDiscount, StringFormat='dd.MM.yyyy'}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding EndDateDiscount}" Value="{x:Null}">
+                                <Setter Property="Text" Value="Пусто"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Run.Style>
+                </Run>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Cумма перерасчета:&#9;&#9;">
+                </Run><Run FontWeight="Bold">
+                    <Run.Style>
+                        <Style TargetType="{x:Type Run}">
+                            <Setter Property="Text" Value="{Binding AmountRecalculation, Converter={StaticResource AmountInWordsDecimalStringConverter}}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding AmountRecalculation}" Value="{x:Static System:Decimal.Zero}">
+                                    <Setter Property="Text" Value="Пусто"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Run.Style>
+                </Run>
+            </TextBlock>
+        </StackPanel>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="AssistantEmployee.Views.Workspaces.DocumentsSelection.DocumentsSelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AssistantEmployee.Views.Workspaces.DocumentsSelection"
+             mc:Ignorable="d" 
+             d:DesignHeight="605" d:DesignWidth="882" Background="{DynamicResource DocumentsSelectionView.Background}">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="DocumentsSelectionView.Background" Color="#fff1f1f1"/>
+        <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="DockPanel.Dock" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+    </UserControl.Resources>
+    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button Style="{StaticResource CreateButtonStyle}" CommandParameter="CreatePositiveResponse">
+            <Button.Content>
+                <DockPanel>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="Положительный ответ"/>
+                    <Image Source="pack://application:,,,/Resources/Positive_response_document_mini_image.png"/>
+                </DockPanel>
+            </Button.Content>
+        </Button>
+        <Button IsEnabled="False" Style="{StaticResource CreateButtonStyle}">
+            <Button.Content>
+                <DockPanel>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="В разработке"/>
+                    <Image Source="pack://application:,,,/Resources/Unknown_document_mini_image.png"/>
+                </DockPanel>
+            </Button.Content>
+        </Button>
+        <Button IsEnabled="False" Style="{StaticResource CreateButtonStyle}">
+            <Button.Content>
+                <DockPanel>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="В разработке"/>
+                    <Image Source="pack://application:,,,/Resources/Unknown_document_mini_image.png"/>
+                </DockPanel>
+            </Button.Content>
+        </Button>
+        <Button IsEnabled="False" Style="{StaticResource CreateButtonStyle}">
+            <Button.Content>
+                <DockPanel>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="В разработке"/>
+                    <Image Source="pack://application:,,,/Resources/Unknown_document_mini_image.png"/>
+                </DockPanel>
+            </Button.Content>
+        </Button>
+    </WrapPanel>
+</UserControl>
