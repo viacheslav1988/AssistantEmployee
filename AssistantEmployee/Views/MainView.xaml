@@ -9,7 +9,7 @@
         xmlns:DocumentsSelectionView="clr-namespace:AssistantEmployee.Views.Workspaces.DocumentsSelection"
         xmlns:PositiveResponseView="clr-namespace:AssistantEmployee.Views.Workspaces.PositiveResponse"
         mc:Ignorable="d"
-        Title="Помощник специалиста" Icon="{StaticResource MainIcon}"
+        Title="Помощник специалиста1" Icon="{StaticResource MainIcon}"
         WindowStartupLocation="CenterScreen" MinWidth="800" Width="900" MinHeight="700" Height="700">
     <Window.Resources>
         <SolidColorBrush x:Key="MainView.Background" Color="#ff535353"/>
